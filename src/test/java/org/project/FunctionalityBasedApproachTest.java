@@ -126,6 +126,4 @@ public class FunctionalityBasedApproachTest {
     void testSubtractiveNotationFalse() {
         assertEquals(4, RomanConverter1.fromRoman("IIII"));
     }
-
-
 }
