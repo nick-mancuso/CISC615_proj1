@@ -51,7 +51,7 @@ We must also include `null` as an input, since this parameter is an object (as o
 | Contains "7"?          | true | false |    |
 | Contains "8"?          | true | false |    |
 | Contains "9"?          | true | false |    |
-| Number of place values | 1   | ...   | 10 |
+| Total Number of place values | 1   | ...   | 10 |
 |                        |      |       |    |
 
 Justification:<br>
