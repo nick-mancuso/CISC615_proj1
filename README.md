@@ -110,7 +110,8 @@ chose this criterion for the following reasons:
  - Test suite still runs in under 20 seconds on an average machine.
  - In this case, it is easier to use all input values than to carefully select some.
 
-#RomanConverter1
+#Modifications
+###RomanConverter1
 I modified the methods in `RomanConverter1` in the following ways:
  - Rewrote each method to have only one return point
  - Added ability to use inverted map in `RomanConverter1#fromRoman` method
@@ -120,19 +121,28 @@ I modified the methods in `RomanConverter1` in the following ways:
  - Extracted common data structures and methods to `Utils.java` to share
 with `RomanConverter2`
 
-#RomanConverter2
+###RomanConverter2
 I modified the methods in `RomanConverter2` in the following ways:
  - Cleaned up code
  - Added exception handling to support test cases
 
 #Results
-Fully implemented test suite and coverage check can be run using the
-`mvn clean verify` maven lifecycle phase, yielding:
 
-```bash
+ - Fully implemented test suite and coverage check can be run using the
+`mvn clean verify` maven lifecycle phase.
+ - Site generation (coverage reports and test results) can be generated
+by running `mvn site`
+ - Published report can be found at: https://nmancus1.github.io/RomanConverter-site/surefire-report.html
 
+###Description of Results
+With 100% code coverage (per Jacoco), and all tests passing, I have a high
+level of confidence in the functionality based reports, since they produced the
+highest number of test cases. The interface based test cases really don't capture
+the nuances of the Roman numeral system.
 
-
-
-
-```
+###Final Thoughts
+For a mission critical setting,
+I would feel fairly confident that either approach (`RomanConverter1` 
+or `RomanConverter2`) would be acceptable. I think that between the interface
+based approach and the functionality based appraoch, we have covered all possible
+inputs of interest to the given methods.
