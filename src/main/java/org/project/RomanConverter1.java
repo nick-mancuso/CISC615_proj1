@@ -7,7 +7,7 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 
 /**
- * Implemetation inspired from https://stackoverflow.com/a/19759564/13160102
+ * Implementation inspired from https://stackoverflow.com/a/19759564/13160102
  * and https://java2blog.com/convert-roman-number-to-integer-java/
  */
 public final class RomanConverter1 {

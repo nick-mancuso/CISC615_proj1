@@ -92,8 +92,13 @@ values.
 | subtractive notation    | true  | false |       |
 
 Justification:<br>
+For all cases here, it is simple to see that all partitioning is disjoint and complete;
+the sequence of numbers from 1 to 3,999 can also be used for the input space of the "letter case"
+characteristic for each case.
 
 
 Some notes:
  - Roman numeral can't be negative - should throw `NoSuchElementException`
  - Zero should throw `NoSuchElementException`
+
+#Test Case Criterion
