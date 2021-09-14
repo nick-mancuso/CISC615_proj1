@@ -129,7 +129,44 @@ I modified the methods in `RomanConverter2` in the following ways:
 #Results
 
  - Fully implemented test suite and coverage check can be run using the
-`mvn clean verify` maven lifecycle phase.
+`mvn clean verify` maven lifecycle phase:
+```bash
+...
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.project.TestFunctionalityBasedApproach2
+[INFO] Tests run: 12032, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.728 s - in org.project.TestFunctionalityBasedApproach2
+[INFO] Running org.project.TestFunctionalityBasedApproach1
+[INFO] Tests run: 12032, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.499 s - in org.project.TestFunctionalityBasedApproach1
+[INFO] Running org.project.TestInterfaceBasedApproach1
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.project.TestInterfaceBasedApproach1
+[INFO] Running org.project.TestInterfaceBasedApproach2
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.project.TestInterfaceBasedApproach2
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 24092, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.7:report (report) @ CISC615_proj1 ---
+[INFO] Loading execution data file /home/nick/IdeaProjects/CISC615_proj1/target/jacoco.exec
+[INFO] Analyzed bundle 'CISC615_proj1' with 4 classes
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.7:check (check) @ CISC615_proj1 ---
+[INFO] Loading execution data file /home/nick/IdeaProjects/CISC615_proj1/target/jacoco.exec
+[INFO] Analyzed bundle 'CISC615_proj1' with 4 classes
+[INFO] All coverage checks have been met.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  10.422 s
+[INFO] Finished at: 2021-09-14T16:43:08-04:00
+[INFO] ------------------------------------------------------------------------
+ ```
+*relevant maven output*
+
+
  - Site generation (coverage reports and test results) can be generated
 by running `mvn site`
  - Published report can be found at: https://nmancus1.github.io/RomanConverter-site/surefire-report.html
@@ -144,5 +181,5 @@ the nuances of the Roman numeral system.
 For a mission critical setting,
 I would feel fairly confident that either approach (`RomanConverter1` 
 or `RomanConverter2`) would be acceptable. I think that between the interface
-based approach and the functionality based appraoch, we have covered all possible
-inputs of interest to the given methods.
+based approach and the functionality based appraoch for IDM, we have covered all
+possible inputs of interest to the given methods.
