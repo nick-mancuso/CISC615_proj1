@@ -39,6 +39,7 @@ We must also include `null` as an input, since this parameter is an object (as o
 # Functionality based approach
 
 ## Arabic
+
 | Characteristic         | b1   | b2    | b10 |
 |------------------------|------|-------|----|
 | Contains "0"?          | true | false |    |
@@ -83,6 +84,7 @@ disjoint because no partition can have exactly the same number of place
 values.
 
 ## Roman
+
 | Characteristic          | b1    | b2    | b...  |
 |-------------------------|-------|-------|-------|
 | letter case             | upper | lower |       |
@@ -101,7 +103,8 @@ Some notes:
  - Roman numeral can't be negative - should throw `NoSuchElementException`
  - Zero should throw `NoSuchElementException`
 
-#Test Case Criterion
+# Test Case Criterion
+
 I have decided to generate test requirements using the "all combinations" criteria. I
 chose this criterion for the following reasons:
  - There are well-defined ranges for all input values
@@ -110,8 +113,10 @@ chose this criterion for the following reasons:
  - Test suite still runs in under 20 seconds on an average machine.
  - In this case, it is easier to use all input values than to carefully select some.
 
-#Modifications
-###RomanConverter1
+# Modifications
+
+### RomanConverter1
+
 I modified the methods in `RomanConverter1` in the following ways:
  - Rewrote each method to have only one return point
  - Added ability to use inverted map in `RomanConverter1#fromRoman` method
@@ -121,12 +126,13 @@ I modified the methods in `RomanConverter1` in the following ways:
  - Extracted common data structures and methods to `Utils.java` to share
 with `RomanConverter2`
 
-###RomanConverter2
+### RomanConverter2
+
 I modified the methods in `RomanConverter2` in the following ways:
  - Cleaned up code
  - Added exception handling to support test cases
 
-#Results
+# Results
 
  - Fully implemented test suite and coverage check can be run using the
 `mvn clean verify` maven lifecycle phase:
@@ -171,13 +177,15 @@ I modified the methods in `RomanConverter2` in the following ways:
 by running `mvn site`
  - Published report can be found [here](https://nmancus1.github.io/RomanConverter-site/surefire-report.html).
 
-###Description of Results
+### Description of Results
+
 With 100% code coverage (per Jacoco), and all tests passing, I have a high
 level of confidence in the functionality based reports, since they produced the
 highest number of test cases. The interface based test cases really don't capture
 the nuances of the Roman numeral system.
 
-###Final Thoughts
+### Final Thoughts
+
 For a mission critical setting,
 I would feel fairly confident that either approach (`RomanConverter1` 
 or `RomanConverter2`) would be acceptable. I think that between the interface
