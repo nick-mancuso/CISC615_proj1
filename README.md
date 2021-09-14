@@ -169,7 +169,7 @@ I modified the methods in `RomanConverter2` in the following ways:
 
  - Site generation (coverage reports and test results) can be generated
 by running `mvn site`
- - Published report can be found at: https://nmancus1.github.io/RomanConverter-site/surefire-report.html
+ - Published report can be found [here](https://nmancus1.github.io/RomanConverter-site/surefire-report.html).
 
 ###Description of Results
 With 100% code coverage (per Jacoco), and all tests passing, I have a high
