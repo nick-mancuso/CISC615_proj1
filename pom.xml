@@ -102,8 +102,6 @@
                         <element>CLASS</element>
                         <excludes>
                             <exclude>*Test</exclude>
-                            <!-- TODO: remove this once implemented -->
-                            <exclude>org.project.RomanConverter2</exclude>
                         </excludes>
                         <limits>
                             <limit>
@@ -144,4 +142,13 @@
         </plugin>
     </plugins>
   </build>
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jxr-plugin</artifactId>
+                <version>2.3</version>
+            </plugin>
+        </plugins>
+    </reporting>
 </project>

@@ -102,3 +102,37 @@ Some notes:
  - Zero should throw `NoSuchElementException`
 
 #Test Case Criterion
+I have decided to generate test requirements using the "all combinations" criteria. I
+chose this criterion for the following reasons:
+ - There are well-defined ranges for all input values
+ - Only one parameter per method, with only two methods to test. This means that we have many
+   resources to use for a small amount of code.
+ - Test suite still runs in under 20 seconds on an average machine.
+ - In this case, it is easier to use all input values than to carefully select some.
+
+#RomanConverter1
+I modified the methods in `RomanConverter1` in the following ways:
+ - Rewrote each method to have only one return point
+ - Added ability to use inverted map in `RomanConverter1#fromRoman` method
+ - Cleaned up code
+ - Added exception handling to support test cases
+ - Modified data structures & syntax to take advantage of Java 16
+ - Extracted common data structures and methods to `Utils.java` to share
+with `RomanConverter2`
+
+#RomanConverter2
+I modified the methods in `RomanConverter2` in the following ways:
+ - Cleaned up code
+ - Added exception handling to support test cases
+
+#Results
+Fully implemented test suite and coverage check can be run using the
+`mvn clean verify` maven lifecycle phase, yielding:
+
+```bash
+
+
+
+
+
+```

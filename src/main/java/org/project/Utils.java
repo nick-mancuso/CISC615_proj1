@@ -1,8 +1,70 @@
 package org.project;
 
+import java.util.Map;
+import java.util.SortedMap;
+import java.util.TreeMap;
+
 public final class Utils {
 
+    public static final TreeMap<Integer, String> INTEGER_TO_ROMAN = new TreeMap<>();
+    public static final TreeMap<Character, Integer> ROMAN_TO_INTEGER;
+    public static final int MAX_ROMAN = 3999;
+
+    static {
+        // init
+        INTEGER_TO_ROMAN.put(1000, "M");
+        INTEGER_TO_ROMAN.put(900, "CM");
+        INTEGER_TO_ROMAN.put(500, "D");
+        INTEGER_TO_ROMAN.put(400, "CD");
+        INTEGER_TO_ROMAN.put(100, "C");
+        INTEGER_TO_ROMAN.put(90, "XC");
+        INTEGER_TO_ROMAN.put(50, "L");
+        INTEGER_TO_ROMAN.put(40, "XL");
+        INTEGER_TO_ROMAN.put(10, "X");
+        INTEGER_TO_ROMAN.put(9, "IX");
+        INTEGER_TO_ROMAN.put(5, "V");
+        INTEGER_TO_ROMAN.put(4, "IV");
+        INTEGER_TO_ROMAN.put(1, "I");
+
+        ROMAN_TO_INTEGER = invertMap(INTEGER_TO_ROMAN);
+    }
+
     private Utils() {
+    }
+
+
+    /**
+     * Inverts a given map by exchanging each entry's key and value.
+     *
+     * @param map source map
+     * @return inverted map
+     */
+    private static TreeMap<Character, Integer> invertMap(SortedMap<Integer, String> map) {
+        TreeMap<Character, Integer> newMap = new TreeMap<>();
+        for (Map.Entry<Integer, String> entry : map.entrySet()) {
+            if (entry.getValue().length() < 2) {
+                newMap.put(entry.getValue().charAt(0), entry.getKey());
+            }
+        }
+        return newMap;
+    }
+
+    /**
+     * Checks given string to make sure that it contains
+     * valid roman numerals.
+     *
+     * @param input string to check
+     * @return true if string contains valid chars
+     */
+    public static boolean containsValidChars(String input) {
+        boolean result = true;
+        for (int i = 0; i < input.length(); i++) {
+            if (!ROMAN_TO_INTEGER.containsKey(input.charAt(i))) {
+                result = false;
+                break;
+            }
+        }
+        return result;
     }
 
     public static String[] getRomanNumerals() {
