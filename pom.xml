@@ -60,10 +60,10 @@
           <version>2.22.1</version>
             <configuration>
               <excludes>
-<!--                  <exclude>TestFunctionalityBasedApproach1.java</exclude>-->
-<!--                  <exclude>TestFunctionalityBasedApproach2.java</exclude>-->
+                  <exclude>TestFunctionalityBasedApproach1.java</exclude>
+                  <exclude>TestFunctionalityBasedApproach2.java</exclude>
 <!--                  <exclude>TestInterfaceBasedApproach1.java</exclude>-->
-<!--                  <exclude>TestInterfaceBasedApproach2.java</exclude>-->
+                  <exclude>TestInterfaceBasedApproach2.java</exclude>
               </excludes>
             </configuration>
         </plugin>
