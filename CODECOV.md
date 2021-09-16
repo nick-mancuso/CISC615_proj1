@@ -39,6 +39,6 @@ coverage, the most significant difference is that there are far fewer tests gene
 the code coverage method (6 vs. ~12,000 for the given `RomanConverter` code, both achieve
 100% coverage). Speaking only from naive intuition, my confidence level is *increased* 
 as the number of tests goes up; but as a computer science student, I think that both test
-suites give me the same amount of confidence because they produce the same coverage. My 
-intuition is that adding mutation testing to our regimen would produce some differences
-in mutation coverage, and that code coverage 
+suites might give me the same amount of confidence because they produce the same coverage. My 
+intuition also tells me that adding mutation testing to our regimen would reveal some 
+more significant differences.
