@@ -126,4 +126,16 @@ public class TestFunctionalityBasedApproach1 {
     void testSubtractiveNotationFalse() {
         assertEquals(4, RomanConverter1.fromRoman("IIII"));
     }
+
+    // PITtest augmentation
+    @Test
+    void testKillZeroBoundryCondition() {
+        assertThrows(NoSuchElementException.class,
+                () -> RomanConverter1.toRoman(0));
+    }
+
+    @Test
+    void testKillMaxBoundryCondition() {
+        assertEquals("MMMCMXCIX", RomanConverter1.toRoman(Utils.MAX_ROMAN));
+    }
 }

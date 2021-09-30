@@ -9,10 +9,6 @@ import java.util.NoSuchElementException;
  */
 public final class RomanConverter1 {
 
-    private RomanConverter1() {
-        // prevent instantiation
-    }
-
     /**
      * Converts an arabic number to a roman numeral.
      *
