@@ -120,7 +120,6 @@
        			<targetClasses>
 <!--       				<param>org.project.RomanConverter*</param>-->
                     <param>org.project.RomanConverter1</param>
-                    <param>org.project.Utils</param>
        			</targetClasses>
        			<targetTests>
        				<param>org.project.TestFunctionalityBasedApproach1</param>

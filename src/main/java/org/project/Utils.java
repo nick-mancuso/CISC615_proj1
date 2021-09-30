@@ -1,13 +1,13 @@
 package org.project;
 
+import java.util.Collections;
 import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
 public final class Utils {
+    private static final TreeMap<Integer, String> INTEGER_TO_ROMAN = new TreeMap<>();
 
-    public static final TreeMap<Integer, String> INTEGER_TO_ROMAN = new TreeMap<>();
-    public static final TreeMap<Character, Integer> ROMAN_TO_INTEGER;
     public static final int MAX_ROMAN = 3999;
 
     static {
@@ -25,11 +25,27 @@ public final class Utils {
         INTEGER_TO_ROMAN.put(5, "V");
         INTEGER_TO_ROMAN.put(4, "IV");
         INTEGER_TO_ROMAN.put(1, "I");
-
-        ROMAN_TO_INTEGER = invertMap(INTEGER_TO_ROMAN);
     }
 
     private Utils() {
+    }
+
+    /**
+     * Get map from roman numeral characters to digits.
+     *
+     * @return inverted map
+     */
+    public static Map<Character, Integer> getRomanToIntegerMap() {
+        return invertMap(INTEGER_TO_ROMAN);
+    }
+
+    /**
+     * Get map from digits to roman numerals.
+     *
+     * @return inverted map
+     */
+    public static TreeMap<Integer, String> getIntegerToRomanMap() {
+        return INTEGER_TO_ROMAN;
     }
 
 
@@ -39,32 +55,14 @@ public final class Utils {
      * @param map source map
      * @return inverted map
      */
-    private static TreeMap<Character, Integer> invertMap(SortedMap<Integer, String> map) {
-        TreeMap<Character, Integer> newMap = new TreeMap<>();
+    private static Map<Character, Integer> invertMap(SortedMap<Integer, String> map) {
+        Map<Character, Integer> newMap = new TreeMap<>();
         for (Map.Entry<Integer, String> entry : map.entrySet()) {
             if (entry.getValue().length() < 2) {
                 newMap.put(entry.getValue().charAt(0), entry.getKey());
             }
         }
         return newMap;
-    }
-
-    /**
-     * Checks given string to make sure that it contains
-     * valid roman numerals.
-     *
-     * @param input string to check
-     * @return true if string contains valid chars
-     */
-    public static boolean containsValidChars(String input) {
-        boolean result = true;
-        for (int i = 0; i < input.length(); i++) {
-            if (!ROMAN_TO_INTEGER.containsKey(input.charAt(i))) {
-                result = false;
-                break;
-            }
-        }
-        return result;
     }
 
     public static String[] getRomanNumerals() {

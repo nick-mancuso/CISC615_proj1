@@ -192,7 +192,9 @@ approach.
 I chose to augment `TestFunctionalityBasedApproach1` which corresponds to the `RomanConverter1`
 implementation. I was able to augment the suite with two additional tests, 
 `testKillZeroBoundryCondition` and `testKillMaxBoundryCondition`. Through these tests I was able to
-achieve 100% mutation coverage. It was simple to completely cover  
+achieve 100% mutation coverage. It was simple to completely cover this implementation of 
+the Roman Converter since we already had a stronger test suite from the domain knowledge
+(functionality based testing).
 
 
 

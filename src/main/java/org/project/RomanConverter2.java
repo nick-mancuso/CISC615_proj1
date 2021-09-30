@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
@@ -13,6 +14,9 @@ import java.util.stream.Collectors;
  */
 public final class RomanConverter2 {
     public static final int CAPACITY = 1024;
+
+    private static final Map<Character, Integer> ROMAN_TO_INTEGER = Utils.getRomanToIntegerMap();
+
 
     private enum RomanNumeral {
         I(1), IV(4), V(5), IX(9), X(10),
@@ -45,7 +49,7 @@ public final class RomanConverter2 {
      */
     public static Integer fromRoman(String romanNumber) {
         String input = romanNumber.toUpperCase(Locale.ROOT);
-        if (input.isEmpty() || !Utils.containsValidChars(input)) {
+        if (input.isEmpty() || !containsValidChars(input)) {
             throw new NoSuchElementException("Roman numerals must be" +
                     " a value from 1(I) - 3,999(MMMCMXCIX) inclusive.");
         }
@@ -99,5 +103,23 @@ public final class RomanConverter2 {
         }
 
         return sb.toString();
+    }
+
+    /**
+     * Checks given string to make sure that it contains
+     * valid roman numerals.
+     *
+     * @param input string to check
+     * @return true if string contains valid chars
+     */
+    private static boolean containsValidChars(String input) {
+        boolean result = true;
+        for (int i = 0; i < input.length(); i++) {
+            if (!ROMAN_TO_INTEGER.containsKey(input.charAt(i))) {
+                result = false;
+                break;
+            }
+        }
+        return result;
     }
 }

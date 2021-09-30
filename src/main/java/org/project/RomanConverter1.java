@@ -1,13 +1,17 @@
 package org.project;
 
 import java.util.Locale;
+import java.util.Map;
 import java.util.NoSuchElementException;
+import java.util.TreeMap;
 
 /**
  * Implementation inspired from https://stackoverflow.com/a/19759564/13160102
  * and https://java2blog.com/convert-roman-number-to-integer-java/
  */
 public final class RomanConverter1 {
+    private static final TreeMap<Integer, String> INTEGER_TO_ROMAN = Utils.getIntegerToRomanMap();
+    private static final Map<Character, Integer> ROMAN_TO_INTEGER = Utils.getRomanToIntegerMap();
 
     /**
      * Converts an arabic number to a roman numeral.
@@ -21,12 +25,12 @@ public final class RomanConverter1 {
             throw new NoSuchElementException("Arabic numerals must be between" +
                     " 1(I) - 3,999(MMMCMXCIX) inclusive to convert to Roman numerals.");
         }
-        final int n = Utils.INTEGER_TO_ROMAN.floorKey(arabicNumber);
+        final int n = INTEGER_TO_ROMAN.floorKey(arabicNumber);
         final String result;
         if (arabicNumber == n) {
-            result = Utils.INTEGER_TO_ROMAN.get(arabicNumber);
+            result = INTEGER_TO_ROMAN.get(arabicNumber);
         } else {
-            result = Utils.INTEGER_TO_ROMAN.get(n) + toRoman(arabicNumber - n);
+            result = INTEGER_TO_ROMAN.get(n) + toRoman(arabicNumber - n);
         }
         return result;
     }
@@ -49,18 +53,18 @@ public final class RomanConverter1 {
         for (int i = 0; i < input.length(); i++) {
             Character ch = input.charAt(i);
             final boolean isUsingSubtractiveNotation = i > 0
-                    && Utils.ROMAN_TO_INTEGER.get(ch)
-                        > Utils.ROMAN_TO_INTEGER.get(input.charAt(i - 1));
+                    && ROMAN_TO_INTEGER.get(ch)
+                        > ROMAN_TO_INTEGER.get(input.charAt(i - 1));
 
             //Case 1
             if (isUsingSubtractiveNotation) {
-                result += Utils.ROMAN_TO_INTEGER.get(ch) - 2
-                        * Utils.ROMAN_TO_INTEGER.get(input.charAt(i - 1));
+                result += ROMAN_TO_INTEGER.get(ch) - 2
+                        * ROMAN_TO_INTEGER.get(input.charAt(i - 1));
             }
 
             // Case 2: just add the corresponding number to result.
             else {
-                result += Utils.ROMAN_TO_INTEGER.get(ch);
+                result += ROMAN_TO_INTEGER.get(ch);
             }
         }
 
@@ -70,7 +74,7 @@ public final class RomanConverter1 {
     private static boolean containsValidChars(String input) {
         boolean result = true;
         for (int i = 0; i < input.length(); i++) {
-            if (!Utils.ROMAN_TO_INTEGER.containsKey(input.charAt(i))) {
+            if (!ROMAN_TO_INTEGER.containsKey(input.charAt(i))) {
                 result = false;
                 break;
             }
